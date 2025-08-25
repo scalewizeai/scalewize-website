@@ -13,7 +13,16 @@
     }
   ],
   "headers": [],
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/invite/[token]",
+      "regex": "^/invite/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtoken": "nxtPtoken"
+      },
+      "namedRegex": "^/invite/(?<nxtPtoken>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -28,22 +37,10 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
-      "page": "/auth/callback",
-      "regex": "^/auth/callback(?:/)?$",
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/auth/callback(?:/)?$"
-    },
-    {
-      "page": "/auth/forgot-password",
-      "regex": "^/auth/forgot\\-password(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/auth/forgot\\-password(?:/)?$"
-    },
-    {
-      "page": "/auth/reset-password",
-      "regex": "^/auth/reset\\-password(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/auth/reset\\-password(?:/)?$"
+      "namedRegex": "^/dashboard(?:/)?$"
     },
     {
       "page": "/dashboard/analytics",
@@ -58,18 +55,6 @@
       "namedRegex": "^/dashboard/chatbot(?:/)?$"
     },
     {
-      "page": "/dashboard/explore",
-      "regex": "^/dashboard/explore(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/dashboard/explore(?:/)?$"
-    },
-    {
-      "page": "/dashboard/invite",
-      "regex": "^/dashboard/invite(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/dashboard/invite(?:/)?$"
-    },
-    {
       "page": "/dashboard/linkedin",
       "regex": "^/dashboard/linkedin(?:/)?$",
       "routeKeys": {},
@@ -82,18 +67,6 @@
       "namedRegex": "^/dashboard/settings(?:/)?$"
     },
     {
-      "page": "/debug",
-      "regex": "^/debug(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/debug(?:/)?$"
-    },
-    {
-      "page": "/favicon.ico",
-      "regex": "^/favicon\\.ico(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/favicon\\.ico(?:/)?$"
-    },
-    {
       "page": "/login",
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
@@ -104,12 +77,6 @@
       "regex": "^/signup(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/signup(?:/)?$"
-    },
-    {
-      "page": "/test",
-      "regex": "^/test(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/test(?:/)?$"
     }
   ],
   "dataRoutes": [],

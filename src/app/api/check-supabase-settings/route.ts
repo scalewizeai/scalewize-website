@@ -50,7 +50,7 @@ export async function GET() {
       success: true,
       authSettings: authSettings ? {
         users: authSettings.users.length,
-        total: authSettings.total
+        total: 'total' in authSettings ? authSettings.total : 'Unknown'
       } : null,
       authError: authError?.message,
       orgTest: orgTest ? 'Success' : null,

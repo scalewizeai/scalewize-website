@@ -21,7 +21,7 @@ interface InvitationData {
   }
 }
 
-export default function InvitePage({ params }: { params: { token: string } }) {
+export default function InvitePage({ params }: { params: Promise<{ token: string }> }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [invitation, setInvitation] = useState<InvitationData | null>(null)
@@ -32,21 +32,27 @@ export default function InvitePage({ params }: { params: { token: string } }) {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [fullName, setFullName] = useState('')
   const [signupError, setSignupError] = useState<string | null>(null)
+  const [token, setToken] = useState<string>('')
   const router = useRouter()
 
   useEffect(() => {
-    validateToken()
-  }, [params.token])
+    const loadParams = async () => {
+      const resolvedParams = await params
+      setToken(resolvedParams.token)
+      validateToken(resolvedParams.token)
+    }
+    loadParams()
+  }, [params])
 
-  const validateToken = async () => {
+  const validateToken = async (token: string) => {
     try {
-      console.log('Validating token:', params.token)
+      console.log('Validating token:', token)
       
       // Simplified query - just get the basic invitation data first
       const { data: invitationData, error: invitationError } = await supabase
         .from('invitations')
         .select('id, organization_id, email, expires_at, status, token, invited_by')
-        .eq('token', params.token)
+        .eq('token', token)
         .eq('status', 'pending')
         .single()
 

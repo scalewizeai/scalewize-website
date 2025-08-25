@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     
     // Fix for Next.js 15: await cookies() before using
     const cookieStore = await cookies()
-    const supabase = createRouteHandlerClient<Database>({ cookies: () => cookieStore })
+    const supabase = createRouteHandlerClient<Database>({ cookies: async () => cookieStore })
 
     // Get current user
     const { data: { user }, error: authError } = await supabase.auth.getUser()

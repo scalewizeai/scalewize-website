@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Bot, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase-client';
 
-export default function LoginPageInner() {
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -203,5 +203,20 @@ export default function LoginPageInner() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function LoginPageInner() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{ background: '#f8f7f4', fontFamily: 'Arial, Helvetica, sans-serif' }}>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-t-2 mx-auto" style={{ borderColor: '#595F39' }} />
+          <h2 className="text-xl font-semibold text-gray-900 mt-4">Loading...</h2>
+        </div>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 } 

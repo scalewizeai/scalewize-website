@@ -1,8 +1,21 @@
 {
-  "/dashboard/linkedin/page": "app/dashboard/linkedin/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/settings/page": "app/dashboard/settings/page.js",
-  "/login/page": "app/login/page.js",
+  "/api/check-supabase-settings/route": "app/api/check-supabase-settings/route.js",
+  "/api/debug-auth/route": "app/api/debug-auth/route.js",
+  "/api/debug-invite/route": "app/api/debug-invite/route.js",
+  "/api/invite/route": "app/api/invite/route.js",
+  "/api/signup-simple/route": "app/api/signup-simple/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/signup/route": "app/api/signup/route.js",
+  "/api/invite-admin/route": "app/api/invite-admin/route.js",
+  "/api/test-service-role/route": "app/api/test-service-role/route.js",
+  "/api/signup-direct/route": "app/api/signup-direct/route.js",
+  "/invite/[token]/page": "app/invite/[token]/page.js",
   "/page": "app/page.js",
-  "/signup/page": "app/signup/page.js"
+  "/login/page": "app/login/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/dashboard/analytics/page": "app/dashboard/analytics/page.js",
+  "/dashboard/chatbot/page": "app/dashboard/chatbot/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/linkedin/page": "app/dashboard/linkedin/page.js",
+  "/dashboard/settings/page": "app/dashboard/settings/page.js"
 }

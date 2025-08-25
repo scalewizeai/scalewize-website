@@ -27,12 +27,8 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
   ]
 
   // Add settings for admins
-  if (profile?.role === 'admin' || profile?.role === 'super_admin') {
+  if (profile?.role === 'admin') {
     navigation.push({ name: 'Settings', href: '/dashboard/settings', icon: Settings })
-  }
-
-  if (profile?.role === 'super_admin') {
-    navigation.push({ name: 'Admin', href: '/admin', icon: Building2 })
   }
 
   return (
